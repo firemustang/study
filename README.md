@@ -13,3 +13,6 @@
 
 # ETC
 - kafka
+- docker
+- ngninx
+- redis
