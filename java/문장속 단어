@@ -1,0 +1,88 @@
+//spilt 이용
+
+public String solution(String str){
+		String answer = "";
+		int m = Integer.MIN_VALUE;
+		String[] s = str.split(" ");
+		
+		for(String x : s) {
+			//System.out.println(x);
+			int len = x.length();
+			if(len > m)
+//만약 len이 integer의 최소값(=x)보다 크면 len에 최소값 대입 
+				m = len;
+				answer=x;			
+		}
+
+		return answer;
+	}
+	
+	public static void main(String[] args) {
+		CodingTest_String_03 T = new CodingTest_String_03();
+		
+		Scanner sc = new Scanner(System.in);
+		String srt = sc.nextLine();
+		
+		System.out.print(T.solution(srt));
+
+	}
+
+//for 문 활용
+//최대값 최소값을 구할 int배열
+int array[] = {4,3,2,1,10,8,7,6,9,5};
+		
+int max = array[0]; //최대값
+int min = array[0]; //최소값
+		
+for(int i=0;i<array.length;i++) {
+    if(max<array[i]) {
+	//max의 값보다 array[i]이 크면 max = array[i]
+	max = array[i];
+    }
+			
+    if(min>array[i]) {
+	//min의 값보다 array[i]이 작으면 min = array[i]
+	min = array[i];
+    }
+}
+		
+System.out.println("최대값 : "+max);
+System.out.println("최소값 : "+min);
+
+//indexOf() 활용
+
+package codingTest;
+import java.util.*;
+
+public class CodingTest_String_03 {
+
+	public String solution(String str){
+		String answer = "";
+		int m = Integer.MIN_VALUE, pos;
+		while ((pos=str.indexOf(' '))!= -1) {
+			String temp = str.substring(0, pos);
+			int len = temp.length();
+			if(len>m) {
+				m = len;
+				answer = temp;
+			}
+			//substring 하나면 포지션 위치부터 뒤로 쭉
+			str = str.substring(pos+1);
+		}
+		//띄어쓰기가 없는 마지막 단어일 경우 처리
+		if(str.length() > m) answer = str;
+
+		return answer;
+	}
+	
+	public static void main(String[] args) {
+		CodingTest_String_03 T = new CodingTest_String_03();
+		
+		Scanner sc = new Scanner(System.in);
+		String srt = sc.nextLine();
+		
+		System.out.print(T.solution(srt));
+
+	}
+
+}
