@@ -1,0 +1,31 @@
+package codingTest;
+import java.util.*;
+
+public class CodingTest_String_11 {
+
+	public String solution(String s) {
+		String answer = "";
+		int cnt = 1;
+		//String index out of range: 11 예방하기 위해 s에 빈문자열 추가
+		s= s+" ";
+		
+		for(int i=0; i<s.length()-1;i++) {
+			if(s.charAt(i) == s.charAt(i+1)) cnt++;
+			else {
+				answer += s.charAt(i);
+				if(cnt>1) answer += String.valueOf(cnt);
+				cnt = 1;	
+			}
+		}
+		
+		
+		return answer;
+	}
+	public static void main(String[] args) {
+		CodingTest_String_11 T = new CodingTest_String_11();
+		Scanner sc = new Scanner(System.in);
+		String str = sc.next();
+		System.out.println(T.solution(str));
+	}
+
+}
