@@ -14,5 +14,5 @@
 # ETC
 - kafka
 - docker
-- ngninx
+- nginx
 - redis
